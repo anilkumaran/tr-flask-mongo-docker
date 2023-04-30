@@ -1,2 +1,1 @@
-# tr-flask-mongo-docker
-tr-flask-mongo-docker
+# flask-mongo-docker

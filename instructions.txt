@@ -1,0 +1,34 @@
+OS: Ubuntu 22.04.2 LTS
+Port: 80, 5000 should be open
+
+sudo apt install apache2
+sudo apt install docker docker-compose
+
+Python: 3.10.6
+docker: Docker version 20.10.21, build 20.10.21-0ubuntu1~22.04.2
+docker-compose: docker-compose version 1.29.2, build unknown
+
+APP_DIR="/home/ubuntu/tr-flask-mongo-docker"
+start the app: 
+cd $APP_DIR
+sudo docker-compose up -d
+get running containers: sudo docker ps -a
+
+## MongoDB:
+login to mongoshell: sudo docker exec -it flask-mongo-docker_mongo_1 mongosh
+create database: use SampleDotCom
+create table users: db.createCollection("users")
+
+db.users.insert([{Name: "John", Role: "Admin"}, 
+           {Name: "Jane", Role: "SeniorDev"},
+                   {Name: "Smith", Role: "AssociateDev"}])
+
+
+## -- Once you make any code changes to app code, restart the app with below command
+cd $APP_DIR
+sudo docker-compose up --build -d web
+[OR]
+sudo docker-compose up -d --build
+
+## -- To dowm|stop single contianer using docker-compose
+sudo docker-compose down|stop web
