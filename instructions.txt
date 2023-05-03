@@ -32,3 +32,12 @@ sudo docker-compose up -d --build
 
 ## -- To dowm|stop single contianer using docker-compose
 sudo docker-compose down|stop web
+
+## API Documentation
+The app's API documentation can be found here http://<YOUR_SERVER_IP>:5000/apidocs
+Ex: http://localhost:5000/apidocs
+
+## Tests
+Used pytest module to run the tests for the application. To run the tests, follow the below instructions
+1. Install the pytest & requests module: pip/pip3 install -r requirements.txt
+2. Once installed, run "pytest" command to run the tests
